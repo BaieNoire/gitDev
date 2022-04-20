@@ -1,0 +1,32 @@
+Python :
+
+    Les Types Natifs :
+
+        *Les chaînes de caractères : 
+            Il s'agit tout simplement de texte. 
+            Délimitées par " ou '. 
+            Pour une chaîne de caractères multiligne utiliser """ ou '''.
+            Les caractères spéciaux : 
+                *print("a\nb") --> \n permet le retour à la ligne
+                *print("\u2764")  --> \u suivis du nombre correspondant à un caractère dans la base de données des caractères unicode.
+
+        *Les nombres :
+
+        *Les booléens :
+            Permet de travailler avec des conditions (Vrai ou Faux)
+
+        *Les listes séquentiels (listes, tulpes) :
+            Permet de représenter une séquence de différents éléments
+
+        *Les types d'ensembles (set, frozenset) :
+            Permet de réaliser des opérations d'union, de différence ou d'intersection
+
+        *Les types de correspondances (dictionnaires) :
+            Autre moyen d'organiser des données avec un sytème de clefs et de valeurs.
+    
+    Divers :
+
+        *L'antislash : 
+            Il permet de faire un échappement càd siginifier à un caractère qu'il ne doit pas être utiliser pour sa fonction première.
+            ex. : print('je m\'appelle Pablo')
+        

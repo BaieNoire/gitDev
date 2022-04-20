@@ -1,0 +1,23 @@
+Les Différentes Commandes à connaitre pour l'invite de commande :
+
+    Navigation :
+        * ls --> lister le contenu d'un dossier
+        * ls -la --> lister le contenu même caché d'un dossier de manière détaillée
+        * pwd --> afficher le chemin du dossier dans lequel on se trouve
+        * cd nomdudossier --> se déplacer dans un dossier
+        * cd .. --> revenir au dossier parent
+    
+    Organisation :
+        * mkdir nomdudossier --> création d'un dossier
+        * touch nomdufichier --> création d'un fichier
+
+    Divers :
+        * code --> lance l'editeur de code
+        * code . --> ouvre le dossier dans lequel on est dans l'editeur de code
+        * code nomdufichier --> lance le fichier dans l'éditeur de code
+
+    Python :
+        * py -i --> lance un terminal python
+
+
+        
