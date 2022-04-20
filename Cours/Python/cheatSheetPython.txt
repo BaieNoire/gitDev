@@ -2,18 +2,65 @@ Python :
 
     Les Types Natifs :
 
-        *Les chaînes de caractères : 
+        *Les chaînes de caractères : (str())
             Il s'agit tout simplement de texte. 
             Délimitées par " ou '. 
             Pour une chaîne de caractères multiligne utiliser """ ou '''.
             Les caractères spéciaux : 
-                *print("a\nb") --> \n permet le retour à la ligne
-                *print("\u2764")  --> \u suivis du nombre correspondant à un caractère dans la base de données des caractères unicode.
+                *print(r'c:\dossiers\pablo\nouveau') 
+                --> r permet d'interpreter la chaine de caractère de manière brut (sans prendre en compte les \)
+                *print("\u2764")  
+                --> \u suivis du nombre correspondant à un caractère dans la base de données des caractères unicode.
+                *\a --> caractère d'appel (BEL)
+                *\n --> retour à la ligne
+                *\b --> caractère de retour en arrière
+                *\f --> saut de page
+                *\r --> retour chariot
+                *\t --> tabulation horizontal
+                *\v --> tabulation vertical
+            Changer la casse :
+                *.upper() --> met tout le str en majuscule
+                *.lower() --> met tout le str en minuscule
+                *.capitalize() --> premier caractère de la chaine en majuscule
+                *.title() --> premier caractere de chaque mot de la chaine en majuscule
+            Manipuler les str :
+                *.replace("element à modifier", "element modifié") --> modifier str
+                *.strip() par défaut elle enleve les espace au debut et a la fin
+                sinon enleve les caractères rentrés en parametre en analysant de la gauche 
+                puis de la droite chaque caractère jusqu'a en trouver un qu'elle ne doit pas enlever
+                *.rstrip() meme fonctionnement que strip mais en analysant que depuis la droite
+                *.lstrip() pareil mais à gauche
+                *.split("élément qui séparent") retourne une liste ex. :
+                "1, 2, 3, 4".split(", ") --> ['1', '2', '3', '4']
+                *"éléments qui vont séparés".join() inverse de split ex. :
+                ", ".join("1, 2, 3, 4".split(", ")) --> "1, 2, 3, 4"
+                *.zfill(nombre de caractères) permet de remplir une str de 0 ex. :
+                "9".zfill(3) --> "009"
+                *.islower() --> renvoie un booleen pour savoir si tout le str et en minuscule
+                *.isupper() --> etc ...
+                *.isdigit() --> est-ce que le str est entierement composé de chiffre
 
-        *Les nombres :
 
-        *Les booléens :
+        *Les nombres : 
+            Les nombres entiers : (int())
+                Ils n'ont pas de décimal après la virgule (positif ou negatif)
+                Depuis la v3.6 de python on peut rendre les entiers plus lisible :
+                1000 devient --> 1_000
+            Les nombres décimaux (flottants) : (float())
+                Ils contiennent des décimals après la virgule (positif ou negatif)
+                Avec python on utilise le . et non la ,
+
+        *Les booléens : (bool())
             Permet de travailler avec des conditions (Vrai ou Faux)
+            Il ne peut prendre que deux valeurs (True, False)
+            Ils sont une sous classe des nombre entier (True = 1, False =0)
+            On peut donc les utiliser avec des nombres entiers
+            La fonction bool() retourne une valeur (True or False)
+            *Pour str : "" --> False
+            *Pour int : 0 --> False
+            *Pour float : 0.0 --> False
+            *Pour listes : [] --> False
+            *Pour dic : {} --> False
 
         *Les listes séquentiels (listes, tulpes) :
             Permet de représenter une séquence de différents éléments
@@ -23,10 +70,79 @@ Python :
 
         *Les types de correspondances (dictionnaires) :
             Autre moyen d'organiser des données avec un sytème de clefs et de valeurs.
+
+        On peut utiliser ces fonctions pour convertir un objet d'un type à l'autre :
+            *str(5) --> permet de convertir int en str
+            *int("5") --> permet de convertir str en int
+    
+    Les variables :
+
+        Elles permettent le stockages de données en associant un objet à un nombre
+        Lorsqu'un objet n'est plus associé à un nom python le detetecte et intervient alors 
+        le garbage collector qui suprrime cet objet de la mémoire libérant ainsi de la place
+        La fonction id() permet de verifier la place en mémoire qu'occupe un objet
+        Le Singleton correspond à certain objet qui sont uniques comme un booléens qui, avec
+        la fonction id(), occuperont tout le temps la même place
+        Le small integer (les nombres entre -5 et 256 inclus) fonctionne de la meme maniere
+        qu'un Singleton, python assigne des places de base pour ces nombres. On peut retrouver
+        ce même comportement avec des str de moins de 20 caractères tout ça pour des raisons 
+        d'optimisation
+
+        Affectation simple :
+            nom = objet ex. : a = 5
+            Avec l'Affectation simple on affecte un nom à un objet
+        
+        Affectations parallèles :
+            nom1, nom2 = objet1, objet2 ex. : a, b = 5, 8
+            Permet plusieurs affectations sur une même ligne
+            Permet aussi l'inversion de valeur ex. : a, b = b, a
+            Il n'y à pas de limite au nombre d'affectation
+
+        Affectations multiples :
+            nom1 = nom2 = nom3 = objet ex. : a = b = c = 5
+            Affecte le même objet au différentes variables (nom)
+            Attention toujours finir par l'objet que l'on souhaite affecter
+
+        Règles et conventions :
+            
+            Les règles à suivre pour nommer une variable :
+            *Ne peut pas commencer par un chiffre
+            *Ne peut pas contenir d'espace
+            *Ne peut contenir que des caractères alpha-numériques
+            (A-z, 0-9) et le tiret du bas(_)
+            *Certains mots sont réservés (print, True, break...)(Keyword)
+            ex. à ne pas suivre :
+                75Paris --> Commence par un chiffre
+                Site-Web --> Contient un tiret (-)
+                #lien video --> Contient un # et un espace
+                True --> Utilise un mot réservé
+            ex. à suivre :
+                75Paris --> Paris75
+                Site-Web --> Site_Web
+                #lien video --> lienVideo
+                True --> true 
+            Les noms des variables sont sensible a la casse (Personne =/= personne)
+
+            Convention de nommage :
+            N'utiliser que des lettres minuscule et utilisé _ pour séparer les mots
+            ex. convention de nommage :
+                Paris75 --> paris_75
+                Site_Web --> site_web 
+                lienVideo --> lien_video
+                true --> true
+
+
+            
+
     
     Divers :
 
         *L'antislash : 
             Il permet de faire un échappement càd siginifier à un caractère qu'il ne doit pas être utiliser pour sa fonction première.
             ex. : print('je m\'appelle Pablo')
+        
+        *La fonction type() :
+            Elle permet de connaitre le type de l'objet
+            ex. : print(type(nom_de_variable))
+
         
